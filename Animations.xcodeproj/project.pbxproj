@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		79236237234EDDC90068B899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79236236234EDDC90068B899 /* AppDelegate.swift */; };
 		79236239234EDDC90068B899 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79236238234EDDC90068B899 /* SceneDelegate.swift */; };
-		7923623B234EDDC90068B899 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923623A234EDDC90068B899 /* ViewController.swift */; };
+		7923623B234EDDC90068B899 /* AnimationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923623A234EDDC90068B899 /* AnimationListViewController.swift */; };
 		7923623E234EDDC90068B899 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7923623C234EDDC90068B899 /* Main.storyboard */; };
 		79236240234EDDCB0068B899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7923623F234EDDCB0068B899 /* Assets.xcassets */; };
 		79236243234EDDCB0068B899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79236241234EDDCB0068B899 /* LaunchScreen.storyboard */; };
+		7923624E234EE0150068B899 /* JitteryIconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923624C234EE0150068B899 /* JitteryIconsViewController.swift */; };
+		7923624F234EE0150068B899 /* JitteryIconsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7923624D234EE0150068B899 /* JitteryIconsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		79236233234EDDC90068B899 /* Animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79236236234EDDC90068B899 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79236238234EDDC90068B899 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7923623A234EDDC90068B899 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7923623A234EDDC90068B899 /* AnimationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationListViewController.swift; sourceTree = "<group>"; };
 		7923623D234EDDC90068B899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7923623F234EDDCB0068B899 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79236242234EDDCB0068B899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79236244234EDDCB0068B899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7923624C234EE0150068B899 /* JitteryIconsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitteryIconsViewController.swift; sourceTree = "<group>"; };
+		7923624D234EE0150068B899 /* JitteryIconsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JitteryIconsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,33 @@
 		79236235234EDDC90068B899 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				7923624A234EDFD20068B899 /* AnimationViews */,
 				79236236234EDDC90068B899 /* AppDelegate.swift */,
 				79236238234EDDC90068B899 /* SceneDelegate.swift */,
-				7923623A234EDDC90068B899 /* ViewController.swift */,
+				7923623A234EDDC90068B899 /* AnimationListViewController.swift */,
 				7923623C234EDDC90068B899 /* Main.storyboard */,
 				7923623F234EDDCB0068B899 /* Assets.xcassets */,
 				79236241234EDDCB0068B899 /* LaunchScreen.storyboard */,
 				79236244234EDDCB0068B899 /* Info.plist */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		7923624A234EDFD20068B899 /* AnimationViews */ = {
+			isa = PBXGroup;
+			children = (
+				7923624B234EDFE10068B899 /* JitteryIcons */,
+			);
+			path = AnimationViews;
+			sourceTree = "<group>";
+		};
+		7923624B234EDFE10068B899 /* JitteryIcons */ = {
+			isa = PBXGroup;
+			children = (
+				7923624C234EE0150068B899 /* JitteryIconsViewController.swift */,
+				7923624D234EE0150068B899 /* JitteryIconsViewController.xib */,
+			);
+			path = JitteryIcons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79236243234EDDCB0068B899 /* LaunchScreen.storyboard in Resources */,
+				7923624F234EE0150068B899 /* JitteryIconsViewController.xib in Resources */,
 				79236240234EDDCB0068B899 /* Assets.xcassets in Resources */,
 				7923623E234EDDC90068B899 /* Main.storyboard in Resources */,
 			);
@@ -138,8 +161,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7923623B234EDDC90068B899 /* ViewController.swift in Sources */,
+				7923623B234EDDC90068B899 /* AnimationListViewController.swift in Sources */,
 				79236237234EDDC90068B899 /* AppDelegate.swift in Sources */,
+				7923624E234EE0150068B899 /* JitteryIconsViewController.swift in Sources */,
 				79236239234EDDC90068B899 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
