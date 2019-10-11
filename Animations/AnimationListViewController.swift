@@ -18,6 +18,7 @@ class AnimationListViewController: UIViewController {
     let animationVCs = [
         ViewControllerDetail(vc: JitteryIconsViewController(), name: "Jittery Icons"),
         ViewControllerDetail(vc: SnapToPlaceViewController(), name: "Snap To Place"),
+        ViewControllerDetail(vc: GravityViewController(), name: "Gravity & Collisions"),
     ]
     
     @IBOutlet weak var tableview: UITableView!
