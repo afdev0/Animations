@@ -16,6 +16,10 @@ class JitteryIconsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         icon.isUserInteractionEnabled = true
+        icon.backgroundColor = UIColor.red
+        icon.layer.cornerRadius = 8.0
+        icon.clipsToBounds = true
+        
         animationCancelBtn.alpha = 0.0
         animationCancelBtn.tintColor = UIColor.gray
 
@@ -49,30 +53,22 @@ class JitteryIconsViewController: UIViewController {
     
 }
 
-extension UIView {
+extension UIView: CAAnimationDelegate {
     
     func shake() {
-        let values = [-10, 10, -5, 5, -10, 10]
-        
-        let animationX = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        animationX.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        animationX.duration = 0.8
-        animationX.repeatCount = .infinity
-        animationX.autoreverses = true
-        animationX.values = values
-        layer.add(animationX, forKey: "shakeX")
-        
-        let animationX2 = animationX
-        animationX2.values = values.reversed()
-        layer.add(animationX2, forKey: "shakeX2")
-        
-        let animationY = CAKeyframeAnimation(keyPath: "transform.translation.y")
-        animationY.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        animationY.duration = 0.8
-        animationY.repeatCount = .infinity
-        animationY.autoreverses = true
-        animationY.values = [-10, 10, -10, 10, -5, 5, 0, -10, 10]
-        layer.add(animationY, forKey: "shakeY")
+        let radians = currentRadianVal()
+        let animate = CABasicAnimation(keyPath: "transform.rotation")
+        animate.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animate.duration = 0.2
+        animate.repeatCount = .infinity
+        animate.autoreverses = true
+        animate.fromValue = radians
+        animate.toValue = radians - 0.2
+        layer.add(animate, forKey: "rotate")
+    }
+    
+    func currentRadianVal() -> Float {
+        return atan2f(Float(transform.b), Float(transform.a));
     }
     
     func fade(options: UIView.AnimationOptions, toAlpha alpha: CGFloat) {
