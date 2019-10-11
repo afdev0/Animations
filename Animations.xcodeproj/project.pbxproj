@@ -15,6 +15,8 @@
 		79236243234EDDCB0068B899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79236241234EDDCB0068B899 /* LaunchScreen.storyboard */; };
 		7923624E234EE0150068B899 /* JitteryIconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923624C234EE0150068B899 /* JitteryIconsViewController.swift */; };
 		7923624F234EE0150068B899 /* JitteryIconsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7923624D234EE0150068B899 /* JitteryIconsViewController.xib */; };
+		79236253235025CF0068B899 /* SnapToPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79236251235025CF0068B899 /* SnapToPlaceViewController.swift */; };
+		79236254235025CF0068B899 /* SnapToPlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79236252235025CF0068B899 /* SnapToPlaceViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		79236244234EDDCB0068B899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7923624C234EE0150068B899 /* JitteryIconsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitteryIconsViewController.swift; sourceTree = "<group>"; };
 		7923624D234EE0150068B899 /* JitteryIconsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JitteryIconsViewController.xib; sourceTree = "<group>"; };
+		79236251235025CF0068B899 /* SnapToPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapToPlaceViewController.swift; sourceTree = "<group>"; };
+		79236252235025CF0068B899 /* SnapToPlaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnapToPlaceViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 		7923624A234EDFD20068B899 /* AnimationViews */ = {
 			isa = PBXGroup;
 			children = (
+				79236250235025B90068B899 /* SnapToPlace */,
 				7923624B234EDFE10068B899 /* JitteryIcons */,
 			);
 			path = AnimationViews;
@@ -87,6 +92,15 @@
 				7923624D234EE0150068B899 /* JitteryIconsViewController.xib */,
 			);
 			path = JitteryIcons;
+			sourceTree = "<group>";
+		};
+		79236250235025B90068B899 /* SnapToPlace */ = {
+			isa = PBXGroup;
+			children = (
+				79236251235025CF0068B899 /* SnapToPlaceViewController.swift */,
+				79236252235025CF0068B899 /* SnapToPlaceViewController.xib */,
+			);
+			path = SnapToPlace;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79236254235025CF0068B899 /* SnapToPlaceViewController.xib in Resources */,
 				79236243234EDDCB0068B899 /* LaunchScreen.storyboard in Resources */,
 				7923624F234EE0150068B899 /* JitteryIconsViewController.xib in Resources */,
 				79236240234EDDCB0068B899 /* Assets.xcassets in Resources */,
@@ -163,6 +178,7 @@
 			files = (
 				7923623B234EDDC90068B899 /* AnimationListViewController.swift in Sources */,
 				79236237234EDDC90068B899 /* AppDelegate.swift in Sources */,
+				79236253235025CF0068B899 /* SnapToPlaceViewController.swift in Sources */,
 				7923624E234EE0150068B899 /* JitteryIconsViewController.swift in Sources */,
 				79236239234EDDC90068B899 /* SceneDelegate.swift in Sources */,
 			);
