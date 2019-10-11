@@ -62,8 +62,8 @@ extension UIView: CAAnimationDelegate {
         animate.duration = 0.2
         animate.repeatCount = .infinity
         animate.autoreverses = true
-        animate.fromValue = radians
-        animate.toValue = radians - 0.2
+        animate.fromValue = radians + 0.05
+        animate.toValue = radians - 0.05
         layer.add(animate, forKey: "rotate")
     }
     
