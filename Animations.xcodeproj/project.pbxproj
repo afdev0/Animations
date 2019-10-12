@@ -19,6 +19,7 @@
 		79236254235025CF0068B899 /* SnapToPlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79236252235025CF0068B899 /* SnapToPlaceViewController.xib */; };
 		7923625823502AE80068B899 /* GravityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923625623502AE80068B899 /* GravityViewController.swift */; };
 		7923625923502AE80068B899 /* GravityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7923625723502AE80068B899 /* GravityViewController.xib */; };
+		7923625C235179EC0068B899 /* BouncyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923625B235179EC0068B899 /* BouncyCardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		79236252235025CF0068B899 /* SnapToPlaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnapToPlaceViewController.xib; sourceTree = "<group>"; };
 		7923625623502AE80068B899 /* GravityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityViewController.swift; sourceTree = "<group>"; };
 		7923625723502AE80068B899 /* GravityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GravityViewController.xib; sourceTree = "<group>"; };
+		7923625B235179EC0068B899 /* BouncyCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		7923624A234EDFD20068B899 /* AnimationViews */ = {
 			isa = PBXGroup;
 			children = (
+				7923625A235179D90068B899 /* BouncyCard */,
 				7923625523502AD70068B899 /* Gravity */,
 				79236250235025B90068B899 /* SnapToPlace */,
 				7923624B234EDFE10068B899 /* JitteryIcons */,
@@ -115,6 +118,14 @@
 				7923625723502AE80068B899 /* GravityViewController.xib */,
 			);
 			path = Gravity;
+			sourceTree = "<group>";
+		};
+		7923625A235179D90068B899 /* BouncyCard */ = {
+			isa = PBXGroup;
+			children = (
+				7923625B235179EC0068B899 /* BouncyCardViewController.swift */,
+			);
+			path = BouncyCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7923623B234EDDC90068B899 /* AnimationListViewController.swift in Sources */,
+				7923625C235179EC0068B899 /* BouncyCardViewController.swift in Sources */,
 				79236237234EDDC90068B899 /* AppDelegate.swift in Sources */,
 				79236253235025CF0068B899 /* SnapToPlaceViewController.swift in Sources */,
 				7923624E234EE0150068B899 /* JitteryIconsViewController.swift in Sources */,
