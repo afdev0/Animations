@@ -46,6 +46,10 @@ class BouncyCardViewController: UIViewController {
     var animator = UIViewPropertyAnimator(duration: 0.9, dampingRatio: 1)
     var visualEffectView:UIVisualEffectView!
     var animationProgress: CGFloat = 0
+    var dynamicAnimator: UIDynamicAnimator!
+    var gravityBevahior: UIGravityBehavior!
+    var collisionBehavior: UICollisionBehavior!
+    var itemBehavior: UIDynamicItemBehavior!
     
     enum CardState {
         case expanded
@@ -82,6 +86,7 @@ class BouncyCardViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupGestures()
+        setupAnimations()
     }
     
     // MARK: View Constraints & Setup
@@ -156,13 +161,32 @@ class BouncyCardViewController: UIViewController {
     
     //MARK: Animations
     
+    func setupAnimations() {
+        dynamicAnimator = UIDynamicAnimator(referenceView: view)
+        collisionBehavior = UICollisionBehavior(items: [cardView])
+        gravityBevahior = UIGravityBehavior(items: [cardView])
+        itemBehavior = UIDynamicItemBehavior(items: [cardView])
+        
+        itemBehavior.elasticity = 0.4
+        gravityBevahior.gravityDirection = CGVector(dx: 0, dy: -1.0)
+        
+        let height = self.view.bounds.height - self.cardCollapsedHeight
+        collisionBehavior.addBoundary(
+            withIdentifier: "Top Boundry" as NSCopying,
+            from: CGPoint(x: 0, y: height),
+            to: CGPoint(x: self.view.bounds.width, y: height)
+        )
+    }
+    
      func startInteractiveTransition() {
         animator.addAnimations {
             switch self.nextState {
             case .expanded:
-                self.cardView.frame.origin.y = self.view.frame.height - CardHeight.cardArea
                 self.visualEffectView.effect = UIBlurEffect(style: .light)
+                self.dynamicAnimator.addBehavior(self.collisionBehavior)
+                self.dynamicAnimator.addBehavior(self.gravityBevahior)
             case .collapsed:
+                self.dynamicAnimator.removeAllBehaviors()
                 self.cardView.frame.origin.y = self.view.frame.height - self.cardCollapsedHeight / 4
                 self.visualEffectView.effect = nil
             }
