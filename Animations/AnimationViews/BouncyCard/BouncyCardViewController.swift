@@ -36,16 +36,9 @@ class BouncyCardViewController: UIViewController {
     var cardCollapsedHeight: CGFloat {
         return self.view.frame.height / 5 * 4
     }
-    
-    var cardExpandedHeight: CGFloat {
-        return self.view.frame.height / 3
-    }
-    
-    // Mark: Animations
         
-    var animator = UIViewPropertyAnimator(duration: 0.9, dampingRatio: 1)
+    // Mark: Animations
     var visualEffectView:UIVisualEffectView!
-    var animationProgress: CGFloat = 0
     var dynamicAnimator: UIDynamicAnimator!
     var gravityBevahior: UIGravityBehavior!
     var collisionBehavior: UICollisionBehavior!
@@ -146,14 +139,13 @@ class BouncyCardViewController: UIViewController {
     
     func setupGestures() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BouncyCardViewController.handleCardTap(recognizer:)))
-            
         cardHandleArea.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @objc func handleCardTap(recognizer: UITapGestureRecognizer) {
         switch recognizer.state {
         case .ended:
-            startInteractiveTransition()
+            cardTransition()
         default:
             break
         }
@@ -178,8 +170,8 @@ class BouncyCardViewController: UIViewController {
         )
     }
     
-     func startInteractiveTransition() {
-        animator.addAnimations {
+     func cardTransition() {
+        UIView.animate(withDuration: 1.0, animations: {
             switch self.nextState {
             case .expanded:
                 self.visualEffectView.effect = UIBlurEffect(style: .light)
@@ -190,11 +182,9 @@ class BouncyCardViewController: UIViewController {
                 self.cardView.frame.origin.y = self.view.frame.height - self.cardCollapsedHeight / 4
                 self.visualEffectView.effect = nil
             }
-        }
-        animator.addCompletion { _ in
+        }) { _ in
             self.isCardVisible = !self.isCardVisible
         }
-        animator.startAnimation()
     }
     
 }
