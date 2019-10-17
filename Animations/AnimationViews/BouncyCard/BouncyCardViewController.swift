@@ -10,39 +10,13 @@ import UIKit
 
 class CardView: UIView {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = UIColor.gray
-        self.layer.borderWidth = 3
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.cornerRadius = 10
-        self.clipsToBounds = true
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-class BouncyCardViewController: UIViewController {
-        
-    // MARK: View Calculations & Constants
-    
-    struct CardHeight {
-        static let cardArea: CGFloat = 750
-        static let handleArea: CGFloat = 50
-    }
-    
-    var cardCollapsedHeight: CGFloat {
-        return self.view.frame.height / 5 * 4
-    }
-        
     // Mark: Animations
-    var visualEffectView:UIVisualEffectView!
     var dynamicAnimator: UIDynamicAnimator!
     var gravityBevahior: UIGravityBehavior!
     var collisionBehavior: UICollisionBehavior!
     var itemBehavior: UIDynamicItemBehavior!
+    
+    // MARK: View Calculations & Constants
     
     enum CardState {
         case expanded
@@ -54,18 +28,14 @@ class BouncyCardViewController: UIViewController {
         return isCardVisible ? .collapsed : .expanded
     }
     
-    // MARK: Custom Views
-
-    private var cardView: UIView!
-    
-    private let cardHandleArea: UIView = {
+    let handleArea: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.white
         view.alpha = 0.3
         return view
     }()
     
-    private var cardHandleIcon: UIImageView = {
+    private var handleIcon: UIImageView = {
         let img = UIImage(systemName: "line.horizontal.3")!
         let view = UIImageView(image: img)
         view.tintColor = .black
@@ -73,73 +43,54 @@ class BouncyCardViewController: UIViewController {
         return view
     }()
     
-    //MARK: View Controller Functions
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = UIColor.gray
+        self.layer.borderWidth = 3
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.cornerRadius = 10
+        self.clipsToBounds = true        
+    }
+        
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViews()
+    override func didMoveToSuperview() {
+        setupInnerViews()
         setupGestures()
         setupAnimations()
     }
     
-    // MARK: View Constraints & Setup
-    
-    func setupViews() {
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "iOS-13-Stock-Wallpaper-Orange-Light"))
-
-        // Add blur effect
-        visualEffectView = UIVisualEffectView()
-        visualEffectView.frame = self.view.frame
-        self.view.addSubview(visualEffectView)
-        
-        // Setup card
-        cardView = CardView(frame: CGRect(
-            x: 0,
-            y: self.view.frame.height - cardCollapsedHeight,
-            width: self.view.frame.width,
-            height: CardHeight.cardArea)
-        )
-        self.view.addSubview(cardView)
-
-
-        // Setup cardview contraints
-        cardView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addConstraints([
-            cardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
-            cardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
-            cardView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: cardCollapsedHeight),
-            cardView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            cardView.heightAnchor.constraint(equalToConstant: CardHeight.cardArea),
-        ])
-              
+    private func setupInnerViews() {
         // Setup card sub views
-        cardView.addSubview(cardHandleArea)
-        cardView.addSubview(cardHandleIcon)
+        self.addSubview(handleArea)
+        self.addSubview(handleIcon)
 
         // Setup card icon
-        cardHandleIcon.translatesAutoresizingMaskIntoConstraints = false
-        cardView.addConstraints([
-            cardHandleIcon.centerXAnchor.constraint(equalTo: cardView.centerXAnchor),
-            cardHandleIcon.centerYAnchor.constraint(equalTo: cardView.centerYAnchor),
-            cardHandleIcon.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 10),
+        handleIcon.translatesAutoresizingMaskIntoConstraints = false
+        self.addConstraints([
+           handleIcon.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+           handleIcon.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+           handleIcon.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
         ])
 
         // Setup card handle area
-        cardHandleArea.translatesAutoresizingMaskIntoConstraints = false
-        cardView.addConstraints([
-            cardHandleArea.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 0),
-            cardHandleArea.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 0),
-            cardHandleArea.widthAnchor.constraint(equalTo: cardView.widthAnchor),
-            cardHandleArea.heightAnchor.constraint(equalToConstant: CardHeight.handleArea),
-            cardHandleArea.topAnchor.constraint(equalTo: cardView.topAnchor),
+        handleArea.translatesAutoresizingMaskIntoConstraints = false
+        self.addConstraints([
+           handleArea.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+           handleArea.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+           handleArea.widthAnchor.constraint(equalTo: self.widthAnchor),
+           handleArea.heightAnchor.constraint(equalToConstant: 50),
+           handleArea.topAnchor.constraint(equalTo: self.topAnchor),
         ])
     }
     
     // MARK: Gestures
     
     func setupGestures() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BouncyCardViewController.handleCardTap(recognizer:)))
-        cardHandleArea.addGestureRecognizer(tapGestureRecognizer)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CardView.handleCardTap(recognizer:)))
+        self.handleArea.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @objc func handleCardTap(recognizer: UITapGestureRecognizer) {
@@ -154,37 +105,91 @@ class BouncyCardViewController: UIViewController {
     //MARK: Animations
     
     func setupAnimations() {
-        dynamicAnimator = UIDynamicAnimator(referenceView: view)
-        collisionBehavior = UICollisionBehavior(items: [cardView])
-        gravityBevahior = UIGravityBehavior(items: [cardView])
-        itemBehavior = UIDynamicItemBehavior(items: [cardView])
+        guard let parent = self.superview else {
+            print("Unable to determine superview")
+            return
+        }
+        dynamicAnimator = UIDynamicAnimator(referenceView: parent)
+        collisionBehavior = UICollisionBehavior(items: [self])
+        gravityBevahior = UIGravityBehavior(items: [self])
+        itemBehavior = UIDynamicItemBehavior(items: [self])
         
         itemBehavior.elasticity = 0.4
         gravityBevahior.gravityDirection = CGVector(dx: 0, dy: -1.0)
         
-        let height = self.view.bounds.height - self.cardCollapsedHeight
+        let height = parent.bounds.height - self.frame.height / 5 * 4
         collisionBehavior.addBoundary(
             withIdentifier: "Top Boundry" as NSCopying,
             from: CGPoint(x: 0, y: height),
-            to: CGPoint(x: self.view.bounds.width, y: height)
+            to: CGPoint(x: parent.bounds.width, y: height)
         )
     }
     
      func cardTransition() {
+        guard let parent = superview else {
+            print("Unable to determine superview for card transition")
+            return
+        }
         UIView.animate(withDuration: 1.0, animations: {
             switch self.nextState {
             case .expanded:
-                self.visualEffectView.effect = UIBlurEffect(style: .light)
+                //self.visualEffectView.effect = UIBlurEffect(style: .light)
                 self.dynamicAnimator.addBehavior(self.collisionBehavior)
                 self.dynamicAnimator.addBehavior(self.gravityBevahior)
             case .collapsed:
                 self.dynamicAnimator.removeAllBehaviors()
-                self.cardView.frame.origin.y = self.view.frame.height - self.cardCollapsedHeight / 4
-                self.visualEffectView.effect = nil
+                self.frame.origin.y = parent.frame.height - parent.frame.height / 5
+                //self.visualEffectView.effect = nil
             }
         }) { _ in
             self.isCardVisible = !self.isCardVisible
         }
+    }
+}
+
+class BouncyCardViewController: UIViewController {
+                    
+    // MARK: Custom Views
+    
+    
+    private var cardView: CardView!
+    
+    //MARK: View Controller Functions
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+    
+    // MARK: View Constraints & Setup
+    
+    func setupViews() {
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "iOS-13-Stock-Wallpaper-Orange-Light"))
+
+        // Add blur effect
+//        visualEffectView = UIVisualEffectView()
+//        visualEffectView.frame = self.view.frame
+//        self.view.addSubview(visualEffectView)
+        
+        // Setup card
+        cardView = CardView(frame: CGRect(
+            x: 0,
+            y: self.view.frame.height - self.view.frame.height / 5 * 4,
+            width: self.view.frame.width,
+            height: 750)
+        )
+        self.view.addSubview(cardView)
+
+
+        // Setup cardview contraints
+        cardView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addConstraints([
+            cardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
+            cardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
+            cardView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.frame.height / 5 * 4),
+            cardView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            cardView.heightAnchor.constraint(equalToConstant: 750),
+        ])
     }
     
 }
