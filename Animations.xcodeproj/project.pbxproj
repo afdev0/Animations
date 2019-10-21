@@ -20,6 +20,7 @@
 		7923625823502AE80068B899 /* GravityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923625623502AE80068B899 /* GravityViewController.swift */; };
 		7923625923502AE80068B899 /* GravityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7923625723502AE80068B899 /* GravityViewController.xib */; };
 		7923625C235179EC0068B899 /* BouncyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923625B235179EC0068B899 /* BouncyCardViewController.swift */; };
+		79651880235D5F8A00EAC05A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7965187F235D5F8A00EAC05A /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		7923625623502AE80068B899 /* GravityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityViewController.swift; sourceTree = "<group>"; };
 		7923625723502AE80068B899 /* GravityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GravityViewController.xib; sourceTree = "<group>"; };
 		7923625B235179EC0068B899 /* BouncyCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyCardViewController.swift; sourceTree = "<group>"; };
+		7965187F235D5F8A00EAC05A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				7923625B235179EC0068B899 /* BouncyCardViewController.swift */,
+				7965187F235D5F8A00EAC05A /* CardView.swift */,
 			);
 			path = BouncyCard;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				79236253235025CF0068B899 /* SnapToPlaceViewController.swift in Sources */,
 				7923624E234EE0150068B899 /* JitteryIconsViewController.swift in Sources */,
 				79236239234EDDC90068B899 /* SceneDelegate.swift in Sources */,
+				79651880235D5F8A00EAC05A /* CardView.swift in Sources */,
 				7923625823502AE80068B899 /* GravityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
