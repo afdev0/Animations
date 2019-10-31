@@ -20,6 +20,7 @@ class AnimationListViewController: UIViewController {
         ViewControllerDetail(vc: SnapToPlaceViewController(), name: "Snap To Place"),
         ViewControllerDetail(vc: GravityViewController(), name: "Gravity & Collisions"),
         ViewControllerDetail(vc: BouncyCardViewController(), name: "Bouncy Card"),
+        ViewControllerDetail(vc: ChainedAnimationsViewController(), name: "Chained Animations"),
     ]
     
     @IBOutlet weak var tableview: UITableView!

@@ -22,6 +22,9 @@
 		7923625C235179EC0068B899 /* BouncyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7923625B235179EC0068B899 /* BouncyCardViewController.swift */; };
 		79651880235D5F8A00EAC05A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7965187F235D5F8A00EAC05A /* CardView.swift */; };
 		79651882235D621100EAC05A /* UIView+CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79651881235D621100EAC05A /* UIView+CardView.swift */; };
+		79D8D4A6236A981F009096A6 /* UIView+AnimationPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8D4A5236A981F009096A6 /* UIView+AnimationPublisher.swift */; };
+		79D8D4A9236A9B9E009096A6 /* ChainedAnimationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8D4A7236A9B9E009096A6 /* ChainedAnimationsViewController.swift */; };
+		79D8D4AA236A9B9E009096A6 /* ChainedAnimationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79D8D4A8236A9B9E009096A6 /* ChainedAnimationsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		7923625B235179EC0068B899 /* BouncyCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyCardViewController.swift; sourceTree = "<group>"; };
 		7965187F235D5F8A00EAC05A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		79651881235D621100EAC05A /* UIView+CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CardView.swift"; sourceTree = "<group>"; };
+		79D8D4A5236A981F009096A6 /* UIView+AnimationPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AnimationPublisher.swift"; sourceTree = "<group>"; };
+		79D8D4A7236A9B9E009096A6 /* ChainedAnimationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainedAnimationsViewController.swift; sourceTree = "<group>"; };
+		79D8D4A8236A9B9E009096A6 /* ChainedAnimationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChainedAnimationsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,7 @@
 		7923624A234EDFD20068B899 /* AnimationViews */ = {
 			isa = PBXGroup;
 			children = (
+				79D8D4A4236A9807009096A6 /* ChainedAnimations */,
 				7923625A235179D90068B899 /* BouncyCard */,
 				7923625523502AD70068B899 /* Gravity */,
 				79236250235025B90068B899 /* SnapToPlace */,
@@ -132,6 +139,16 @@
 				79651881235D621100EAC05A /* UIView+CardView.swift */,
 			);
 			path = BouncyCard;
+			sourceTree = "<group>";
+		};
+		79D8D4A4236A9807009096A6 /* ChainedAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				79D8D4A5236A981F009096A6 /* UIView+AnimationPublisher.swift */,
+				79D8D4A7236A9B9E009096A6 /* ChainedAnimationsViewController.swift */,
+				79D8D4A8236A9B9E009096A6 /* ChainedAnimationsViewController.xib */,
+			);
+			path = ChainedAnimations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79236254235025CF0068B899 /* SnapToPlaceViewController.xib in Resources */,
+				79D8D4AA236A9B9E009096A6 /* ChainedAnimationsViewController.xib in Resources */,
 				7923625923502AE80068B899 /* GravityViewController.xib in Resources */,
 				79236243234EDDCB0068B899 /* LaunchScreen.storyboard in Resources */,
 				7923624F234EE0150068B899 /* JitteryIconsViewController.xib in Resources */,
@@ -209,7 +227,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7923623B234EDDC90068B899 /* AnimationListViewController.swift in Sources */,
+				79D8D4A6236A981F009096A6 /* UIView+AnimationPublisher.swift in Sources */,
 				7923625C235179EC0068B899 /* BouncyCardViewController.swift in Sources */,
+				79D8D4A9236A9B9E009096A6 /* ChainedAnimationsViewController.swift in Sources */,
 				79236237234EDDC90068B899 /* AppDelegate.swift in Sources */,
 				79236253235025CF0068B899 /* SnapToPlaceViewController.swift in Sources */,
 				7923624E234EE0150068B899 /* JitteryIconsViewController.swift in Sources */,
